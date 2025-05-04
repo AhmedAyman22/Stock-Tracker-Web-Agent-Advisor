@@ -1,0 +1,402 @@
+{
+    "1": {
+        "name": "Apple Inc. Common Stock",
+        "ticker": "AAPL"
+    },
+    "2": {
+        "name": "Microsoft Corporation Common Stock",
+        "ticker": "MSFT"
+    },
+    "3": {
+        "name": "NVIDIA Corporation Common Stock",
+        "ticker": "NVDA"
+    },
+    "4": {
+        "name": "Amazon.com, Inc. Common Stock",
+        "ticker": "AMZN"
+    },
+    "5": {
+        "name": "Alphabet Inc. Class C Capital Stock",
+        "ticker": "GOOG"
+    },
+    "6": {
+        "name": "Alphabet Inc. Class A Common Stock",
+        "ticker": "GOOGL"
+    },
+    "7": {
+        "name": "Meta Platforms, Inc. Class A Common Stock",
+        "ticker": "META"
+    },
+    "8": {
+        "name": "Berkshire Hathaway Inc.",
+        "ticker": "BRK/A"
+    },
+    "9": {
+        "name": "Berkshire Hathaway Inc.",
+        "ticker": "BRK/B"
+    },
+    "10": {
+        "name": "Broadcom Inc. Common Stock",
+        "ticker": "AVGO"
+    },
+    "11": {
+        "name": "Tesla, Inc. Common Stock",
+        "ticker": "TSLA"
+    },
+    "12": {
+        "name": "Taiwan Semiconductor Manufacturing Company Ltd.",
+        "ticker": "TSM"
+    },
+    "13": {
+        "name": "Walmart Inc. Common Stock",
+        "ticker": "WMT"
+    },
+    "14": {
+        "name": "Eli Lilly and Company Common Stock",
+        "ticker": "LLY"
+    },
+    "15": {
+        "name": "JP Morgan Chase & Co. Common Stock",
+        "ticker": "JPM"
+    },
+    "16": {
+        "name": "Visa Inc.",
+        "ticker": "V"
+    },
+    "17": {
+        "name": "Mastercard Incorporated Common Stock",
+        "ticker": "MA"
+    },
+    "18": {
+        "name": "Netflix, Inc. Common Stock",
+        "ticker": "NFLX"
+    },
+    "19": {
+        "name": "Exxon Mobil Corporation Common Stock",
+        "ticker": "XOM"
+    },
+    "20": {
+        "name": "Costco Wholesale Corporation Common Stock",
+        "ticker": "COST"
+    },
+    "21": {
+        "name": "Oracle Corporation Common Stock",
+        "ticker": "ORCL"
+    },
+    "22": {
+        "name": "Procter & Gamble Company (The) Common Stock",
+        "ticker": "PG"
+    },
+    "23": {
+        "name": "Johnson & Johnson Common Stock",
+        "ticker": "JNJ"
+    },
+    "24": {
+        "name": "UnitedHealth Group Incorporated Common Stock (DE)",
+        "ticker": "UNH"
+    },
+    "25": {
+        "name": "Home Depot, Inc. (The) Common Stock",
+        "ticker": "HD"
+    },
+    "26": {
+        "name": "SAP SE ADS",
+        "ticker": "SAP"
+    },
+    "27": {
+        "name": "AbbVie Inc. Common Stock",
+        "ticker": "ABBV"
+    },
+    "28": {
+        "name": "Coca-Cola Company (The) Common Stock",
+        "ticker": "KO"
+    },
+    "29": {
+        "name": "Bank of America Corporation Common Stock",
+        "ticker": "BAC"
+    },
+    "30": {
+        "name": "Novo Nordisk A/S Common Stock",
+        "ticker": "NVO"
+    },
+    "31": {
+        "name": "Alibaba Group Holding Limited American Depositary Shares each representing eight Ordinary share",
+        "ticker": "BABA"
+    },
+    "32": {
+        "name": "T-Mobile US, Inc. Common Stock",
+        "ticker": "TMUS"
+    },
+    "33": {
+        "name": "Sumitomo Mitsui Financial Group Inc Unsponsored American Depositary Shares (Japan)",
+        "ticker": "SMFG"
+    },
+    "34": {
+        "name": "Palantir Technologies Inc. Class A Common Stock",
+        "ticker": "PLTR"
+    },
+    "35": {
+        "name": "Philip Morris International Inc Common Stock",
+        "ticker": "PM"
+    },
+    "36": {
+        "name": "ASML Holding N.V. New York Registry Shares",
+        "ticker": "ASML"
+    },
+    "37": {
+        "name": "Salesforce, Inc. Common Stock",
+        "ticker": "CRM"
+    },
+    "38": {
+        "name": "Toyota Motor Corporation Common Stock",
+        "ticker": "TM"
+    },
+    "39": {
+        "name": "Chevron Corporation Common Stock",
+        "ticker": "CVX"
+    },
+    "40": {
+        "name": "Comcast Holdings ZONES",
+        "ticker": "CCZ"
+    },
+    "41": {
+        "name": "Wells Fargo & Company Common Stock",
+        "ticker": "WFC"
+    },
+    "42": {
+        "name": "Cisco Systems, Inc. Common Stock (DE)",
+        "ticker": "CSCO"
+    },
+    "43": {
+        "name": "Abbott Laboratories Common Stock",
+        "ticker": "ABT"
+    },
+    "44": {
+        "name": "McDonald's Corporation Common Stock",
+        "ticker": "MCD"
+    },
+    "45": {
+        "name": "International Business Machines Corporation Common Stock",
+        "ticker": "IBM"
+    },
+    "46": {
+        "name": "Novartis AG Common Stock",
+        "ticker": "NVS"
+    },
+    "47": {
+        "name": "AstraZeneca PLC American Depositary Shares",
+        "ticker": "AZN"
+    },
+    "48": {
+        "name": "GE Aerospace Common Stock",
+        "ticker": "GE"
+    },
+    "49": {
+        "name": "Linde plc Ordinary Shares",
+        "ticker": "LIN"
+    },
+    "50": {
+        "name": "Merck & Company, Inc. Common Stock (new)",
+        "ticker": "MRK"
+    },
+    "51": {
+        "name": "Accenture plc Class A Ordinary Shares (Ireland)",
+        "ticker": "ACN"
+    },
+    "52": {
+        "name": "AT&T Inc.",
+        "ticker": "T"
+    },
+    "53": {
+        "name": "ServiceNow, Inc. Common Stock",
+        "ticker": "NOW"
+    },
+    "54": {
+        "name": "Shell PLC American Depositary Shares (each representing two (2) Ordinary Shares)",
+        "ticker": "SHEL"
+    },
+    "55": {
+        "name": "HSBC Holdings, plc. Common Stock",
+        "ticker": "HSBC"
+    },
+    "56": {
+        "name": "UBS Group AG Registered Ordinary Shares",
+        "ticker": "UBS"
+    },
+    "57": {
+        "name": "Morgan Stanley Common Stock",
+        "ticker": "MS"
+    },
+    "58": {
+        "name": "American Express Company Common Stock",
+        "ticker": "AXP"
+    },
+    "59": {
+        "name": "Intuitive Surgical, Inc. Common Stock",
+        "ticker": "ISRG"
+    },
+    "60": {
+        "name": "PepsiCo, Inc. Common Stock",
+        "ticker": "PEP"
+    },
+    "61": {
+        "name": "HDFC Bank Limited Common Stock",
+        "ticker": "HDB"
+    },
+    "62": {
+        "name": "Verizon Communications Inc. Common Stock",
+        "ticker": "VZ"
+    },
+    "63": {
+        "name": "Intuit Inc. Common Stock",
+        "ticker": "INTU"
+    },
+    "64": {
+        "name": "Goldman Sachs Group, Inc. (The) Common Stock",
+        "ticker": "GS"
+    },
+    "65": {
+        "name": "RTX Corporation Common Stock",
+        "ticker": "RTX"
+    },
+    "66": {
+        "name": "Royal Bank Of Canada Common Stock",
+        "ticker": "RY"
+    },
+    "67": {
+        "name": "Uber Technologies, Inc. Common Stock",
+        "ticker": "UBER"
+    },
+    "68": {
+        "name": "Booking Holdings Inc. Common Stock",
+        "ticker": "BKNG"
+    },
+    "69": {
+        "name": "Walt Disney Company (The) Common Stock",
+        "ticker": "DIS"
+    },
+    "70": {
+        "name": "Progressive Corporation (The) Common Stock",
+        "ticker": "PGR"
+    },
+    "71": {
+        "name": "AT&T Inc. 5.350% Global Notes due 2066",
+        "ticker": "TBB"
+    },
+    "72": {
+        "name": "Adobe Inc. Common Stock",
+        "ticker": "ADBE"
+    },
+    "73": {
+        "name": "Thermo Fisher Scientific Inc Common Stock",
+        "ticker": "TMO"
+    },
+    "74": {
+        "name": "Advanced Micro Devices, Inc. Common Stock",
+        "ticker": "AMD"
+    },
+    "75": {
+        "name": "Unilever PLC Common Stock",
+        "ticker": "UL"
+    },
+    "76": {
+        "name": "S&P Global Inc. Common Stock",
+        "ticker": "SPGI"
+    },
+    "77": {
+        "name": "Amgen Inc. Common Stock",
+        "ticker": "AMGN"
+    },
+    "78": {
+        "name": "Sony Group Corporation American Depositary Shares",
+        "ticker": "SONY"
+    },
+    "79": {
+        "name": "Boston Scientific Corporation Common Stock",
+        "ticker": "BSX"
+    },
+    "80": {
+        "name": "PDD Holdings Inc. American Depositary Shares",
+        "ticker": "PDD"
+    },
+    "81": {
+        "name": "Caterpillar, Inc. Common Stock",
+        "ticker": "CAT"
+    },
+    "82": {
+        "name": "QUALCOMM Incorporated Common Stock",
+        "ticker": "QCOM"
+    },
+    "83": {
+        "name": "Charles Schwab Corporation (The) Common Stock",
+        "ticker": "SCHW"
+    },
+    "84": {
+        "name": "Mitsubishi UFJ Financial Group, Inc. Common Stock",
+        "ticker": "MUFG"
+    },
+    "85": {
+        "name": "Texas Instruments Incorporated Common Stock",
+        "ticker": "TXN"
+    },
+    "86": {
+        "name": "Stryker Corporation Common Stock",
+        "ticker": "SYK"
+    },
+    "87": {
+        "name": "TJX Companies, Inc. (The) Common Stock",
+        "ticker": "TJX"
+    },
+    "88": {
+        "name": "BlackRock, Inc. Common Stock",
+        "ticker": "BLK"
+    },
+    "89": {
+        "name": "Danaher Corporation Common Stock",
+        "ticker": "DHR"
+    },
+    "90": {
+        "name": "Boeing Company (The) Common Stock",
+        "ticker": "BA"
+    },
+    "91": {
+        "name": "Sanofi ADS",
+        "ticker": "SNY"
+    },
+    "92": {
+        "name": "NextEra Energy, Inc. Common Stock",
+        "ticker": "NEE"
+    },
+    "93": {
+        "name": "Pfizer, Inc. Common Stock",
+        "ticker": "PFE"
+    },
+    "94": {
+        "name": "Honeywell International Inc. Common Stock",
+        "ticker": "HON"
+    },
+    "95": {
+        "name": "Deere & Company Common Stock",
+        "ticker": "DE"
+    },
+    "96": {
+        "name": "TotalEnergies SE",
+        "ticker": "TTE"
+    },
+    "97": {
+        "name": "Gilead Sciences, Inc. Common Stock",
+        "ticker": "GILD"
+    },
+    "98": {
+        "name": "Citigroup, Inc. Common Stock",
+        "ticker": "C"
+    },
+    "99": {
+        "name": "Vertex Pharmaceuticals Incorporated Common Stock",
+        "ticker": "VRTX"
+    },
+    "100": {
+        "name": "Union Pacific Corporation Common Stock",
+        "ticker": "UNP"
+    }
+}

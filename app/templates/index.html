@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stock Advisor</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        th:nth-child(1), td:nth-child(1) { /* Rank column */
+            width: 5%;
+        }
+        th:nth-child(2), td:nth-child(2) { /* Name column */
+            width: 70%;
+        }
+        th:nth-child(3), td:nth-child(3) { /* Ticker column */
+            width: 15%;
+        }
+        th:nth-child(4), td:nth-child(4) { /* Select column */
+            width: 10%;
+            text-align: center;
+        }
+    </style>
+</head>
+<img src="./assets/option1.png" width="500" height="500">
+
+<body class="bg-gray-100 p-8">
+    <h1 class="text-2xl font-bold mb-4">Top 100 Performing Companies in the NASDAQ Stock Market</h1>
+    <div class="overflow-x-auto shadow-md rounded-md mb-4">
+        <table class="table-auto bg-white w-full">
+            <thead class="bg-gray-200">
+                <tr>
+                    <th class="px-4 py-2 text-left">Rank</th>
+                    <th class="px-4 py-2 text-left">Name</th>
+                    <th class="px-4 py-2 text-left">Ticker</th>
+                    <th class="px-4 py-2 text-right">Select</th>
+                </tr>
+            </thead>
+            <tbody id="companyTableBody">
+                </tbody>
+        </table>
+    </div>
+
+    <div class="flex items-center justify-between mb-4">
+        <div>
+            <label for="itemsPerPage" class="mr-2">Show:</label>
+            <select id="itemsPerPage" class="border rounded py-1 px-2" onchange="changeItemsPerPage(this.value)">
+                <option value="25" selected>25</option>
+                <option value="50">50</option>
+                <option value="100">100</option>
+            </select>
+            <span class="ml-2">entries</span>
+        </div>
+        <div id="pagination" class="space-x-2">
+            </div>
+    </div>
+
+    
+
+    <button id="refreshButton" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+        Refresh Data
+    </button>
+
+    <div class="mb-4">
+        <h2 class="text-lg font-semibold mb-2">Selected Companies</h2>
+        <ul id="selectedCompanies" class="list-disc list-inside"></ul>
+    </div>
+
+    <button id="submitButton" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-2 rounded">
+        Submit Tickers to Advisor
+    </button>
+
+    <div id="report" class="mt-4 p-4 bg-white shadow-md rounded-md">
+        <h2 class="text-lg font-semibold mb-2">Report</h2>
+        <p id="reportText" class="text-gray-700">Web agent will print information here.</p>
+    </div>
+
+    <script>
+        const companyTableBody = document.getElementById('companyTableBody');
+        const selectedCompaniesList = document.getElementById('selectedCompanies');
+        const refreshButton = document.getElementById('refreshButton');
+        const reportDiv = document.getElementById('report');
+        const reportText = document.getElementById('reportText');
+        const itemsPerPageSelect = document.getElementById('itemsPerPage');
+        const paginationDiv = document.getElementById('pagination');
+        let allCompanyData = {};
+        let selectedTickers = [];
+        const maxSelections = 3;
+        let currentPage = 1;
+        let itemsPerPage = 25;
+
+        function renderTable() {
+            companyTableBody.innerHTML = ''; // Clear existing rows
+            const startIndex = (currentPage - 1) * itemsPerPage;
+            const endIndex = Math.min(startIndex + parseInt(itemsPerPage), Object.keys(allCompanyData).length);
+
+            for (let i = startIndex + 1; i <= endIndex; i++) {
+                const rank = String(i);
+                const company = allCompanyData[rank];
+                if (company) {
+                    const row = companyTableBody.insertRow();
+                    const rankCell = row.insertCell();
+                    const nameCell = row.insertCell();
+                    const tickerCell = row.insertCell();
+                    const selectCell = row.insertCell();
+
+                    rankCell.textContent = rank;
+                    nameCell.textContent = company.name;
+                    tickerCell.textContent = company.ticker;
+                    selectCell.classList.add('text-right');
+
+                    const checkbox = document.createElement('input');
+                    checkbox.type = 'checkbox';
+                    checkbox.value = company.ticker;
+                    checkbox.addEventListener('change', handleCheckboxChange);
+                    checkbox.checked = selectedTickers.includes(company.ticker); // Maintain selection across pages
+                    selectCell.appendChild(checkbox);
+                }
+            }
+            renderPagination();
+        }
+
+        function updateSelectedCompaniesList() {
+            selectedCompaniesList.innerHTML = ''; // Clear existing list
+            selectedTickers.forEach(ticker => {
+                const listItem = document.createElement('li');
+                listItem.textContent = ticker;
+                selectedCompaniesList.appendChild(listItem);
+            });
+        }
+
+        function handleCheckboxChange(event) {
+            const ticker = event.target.value;
+            if (event.target.checked) {
+                if (selectedTickers.length < maxSelections && !selectedTickers.includes(ticker)) {
+                    selectedTickers.push(ticker);
+                } else {
+                    event.target.checked = false; // Prevent selecting more than 3
+                    if (selectedTickers.length >= maxSelections) {
+                        alert(`You can select a maximum of ${maxSelections} companies.`);
+                    }
+                }
+            } else {
+                selectedTickers = selectedTickers.filter(t => t !== ticker);
+            }
+            updateSelectedCompaniesList();
+            console.log("Selected Tickers:", selectedTickers); // For debugging
+        }
+
+        function renderPagination() {
+            paginationDiv.innerHTML = ''; // Clear existing buttons
+            const totalItems = Object.keys(allCompanyData).length;
+            const totalPages = Math.ceil(totalItems / itemsPerPage);
+
+            if (totalPages > 1) {
+                const prevButton = document.createElement('button');
+                prevButton.textContent = 'Previous';
+                prevButton.classList.add('bg-gray-300', 'hover:bg-gray-400', 'text-gray-800', 'font-bold', 'py-1', 'px-3', 'rounded', 'mr-2');
+                prevButton.disabled = currentPage === 1;
+                prevButton.addEventListener('click', () => {
+                    currentPage--;
+                    renderTable();
+                });
+                paginationDiv.appendChild(prevButton);
+
+                for (let i = 1; i <= totalPages; i++) {
+                    const pageButton = document.createElement('button');
+                    pageButton.textContent = i;
+                    pageButton.classList.add('bg-white', 'hover:bg-gray-200', 'text-gray-800', 'font-bold', 'py-1', 'px-3', 'rounded');
+                    if (i === currentPage) {
+                        pageButton.classList.add('bg-blue-500', 'text-white');
+                    }
+                    pageButton.addEventListener('click', () => {
+                        currentPage = i;
+                        renderTable();
+                    });
+                    paginationDiv.appendChild(pageButton);
+                }
+
+                const nextButton = document.createElement('button');
+                nextButton.textContent = 'Next';
+                nextButton.classList.add('bg-gray-300', 'hover:bg-gray-400', 'text-gray-800', 'font-bold', 'py-1', 'px-3', 'rounded', 'ml-2');
+                nextButton.disabled = currentPage === totalPages;
+                nextButton.addEventListener('click', () => {
+                    currentPage++;
+                    renderTable();
+                });
+                paginationDiv.appendChild(nextButton);
+            }
+        }
+
+        function changeItemsPerPage(value) {
+            itemsPerPage = parseInt(value);
+            currentPage = 1; // Reset to the first page when items per page changes
+            renderTable();
+        }
+
+        async function fetchData() {
+            try {
+                const response = await fetch('/data');
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                const data = await response.json();
+                allCompanyData = data;
+                renderTable(); // Initial render with the fetched data
+            } catch (error) {
+                console.error("Could not fetch data:", error);
+                reportText.textContent = "Error loading data.";
+            }
+        }
+
+        refreshButton.addEventListener('click', async () => {
+            reportText.textContent = "Refreshing data...";
+            try {
+                const response = await fetch('/refresh', { method: 'POST' });
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                const data = await response.json();
+                allCompanyData = data;
+                currentPage = 1; // Reset to the first page after refresh
+                renderTable();
+                reportText.textContent = "Data refreshed successfully.";
+            } catch (error) {
+                console.error("Error refreshing data:", error);
+                reportText.textContent = "Error refreshing data.";
+            }
+        });
+
+        // Initial data load
+        fetchData();
+    </script>
+</body>
+</html> 
