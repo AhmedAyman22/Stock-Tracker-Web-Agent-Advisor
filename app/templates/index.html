@@ -21,7 +21,8 @@
         }
     </style>
 </head>
-<img src="./assets/option1.png" width="500" height="500">
+
+<img src="{{ url_for('static', filename='assets/option1.png') }}" style=" top:5%;  transform: translate(170%)" width="400" height="400">
 
 <body class="bg-gray-100 p-8">
     <h1 class="text-2xl font-bold mb-4">Top 100 Performing Companies in the NASDAQ Stock Market</h1>
@@ -66,7 +67,7 @@
     </div>
 
     <button id="submitButton" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-2 rounded">
-        Submit Tickers to Advisor
+        Submit Selected Tickers to Advisor
     </button>
 
     <div id="report" class="mt-4 p-4 bg-white shadow-md rounded-md">
@@ -78,6 +79,7 @@
         const companyTableBody = document.getElementById('companyTableBody');
         const selectedCompaniesList = document.getElementById('selectedCompanies');
         const refreshButton = document.getElementById('refreshButton');
+        const submitButton = document.getElementById('submitButton');
         const reportDiv = document.getElementById('report');
         const reportText = document.getElementById('reportText');
         const itemsPerPageSelect = document.getElementById('itemsPerPage');
