@@ -4,7 +4,6 @@ from dotenv import load_dotenv
 from google import genai
 import json
 
-# Load the environment variables from .env file
 load_dotenv()
 api_key = os.environ.get('GEMINI_API_KEY')
 

@@ -13,7 +13,7 @@ def scraper():
     service = Service(cdm().install())
     headless = Options()
     headless.add_argument('--headless')
-    headless.add_argument("user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36") # Example user-agent    
+    headless.add_argument("user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36") 
     driver = wd.Chrome(service=service, options=headless)
     driver.get('https://www.nasdaq.com/market-activity/stocks/screener?page=1&rows_per_page=100')
     time.sleep(5)
@@ -29,7 +29,7 @@ def scraper():
                 'ticker': companyTicker
             }
         print('data fetched')
-        # Save the data to a JSON file
+
         cur_path = os.path.dirname(__file__)
         new_path = os.path.relpath('..\\data\\data.json', cur_path)
         

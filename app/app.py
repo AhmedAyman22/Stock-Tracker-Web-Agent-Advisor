@@ -48,18 +48,20 @@ def refresh_data():
 @app.route("/submit", methods=['POST'])
 def submit_tickers():
     data = request.get_json()
-    print('data',data)
     companiesPerformance = performanceFetcher(data['selectedCompanies'])
-    print('companiesPerformance',companiesPerformance)    
+    
     print('sending data to agent...')
     generateReport(companiesPerformance)
     print('generating report...')
+    
     app_dir = os.path.dirname(os.path.abspath(__file__))
     data_path = os.path.join(app_dir, '..', 'data', 'agent_report.json')
+    print('fetching report...')
+    
     with open(data_path, 'r') as f:
         data = json.load(f)
     f.close()
-    print('sending report...')
+    print('previewing report...')
     return jsonify(data['report'])
 
 
