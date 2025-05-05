@@ -47,12 +47,12 @@ def refresh_data():
 
 @app.route("/submit", methods=['POST'])
 def submit_tickers():
-    #try:
-    #agent_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), '../agent', 'agent.py')
-    #subprocess.run(['python', agent_path], check=True)
     data = request.get_json()
+    print('data',data)
+    companiesPerformance = performanceFetcher(data['selectedCompanies'])
+    print('companiesPerformance',companiesPerformance)    
     print('sending data to agent...')
-    generateReport(data)
+    generateReport(companiesPerformance)
     print('generating report...')
     app_dir = os.path.dirname(os.path.abspath(__file__))
     data_path = os.path.join(app_dir, '..', 'data', 'agent_report.json')
@@ -62,11 +62,6 @@ def submit_tickers():
     print('sending report...')
     return jsonify(data['report'])
 
-    #except subprocess.CalledProcessError as e:
-        #print(f"Error running agent: {e}")
-        #return jsonify({"error": "Failed to connect to AI"}), 500
-    #except FileNotFoundError:
-        #return jsonify({})
 
 if __name__ == '__main__':
     app.run(debug=True)

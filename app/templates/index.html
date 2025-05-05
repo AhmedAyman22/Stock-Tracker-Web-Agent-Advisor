@@ -235,14 +235,13 @@
             {
                 reportText.textContent = "Submitting data to your AI Advisor...";
                 try {
-                    selectedTickers
                     const response = await fetch('/submit', {
                         method: 'POST',
                         headers: {
                             'Content-Type': 'application/json'
                         },
                     body: JSON.stringify({ selectedCompanies: selectedTickers })
-                });
+                });                
                 
                 if (!response.ok) {
                     throw new Error(`HTTP error! status: ${response.status}`);

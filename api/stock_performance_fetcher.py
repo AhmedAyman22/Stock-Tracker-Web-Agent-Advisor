@@ -17,10 +17,11 @@ api_key = os.environ.get('POLYGON_API_KEY')
 client = RESTClient(api_key=api_key)
 
 def performanceFetcher(tickers):
+    data = {}
     for ticker in tickers:
         url = f'https://api.polygon.io/v2/aggs/ticker/{ticker}/range/1/day/{startDate}/{endDate}?apiKey={api_key}'
         response = requests.get(url)
-        data = response.text
-        return data
+        data[ticker]= response.text
+    return data
             
     

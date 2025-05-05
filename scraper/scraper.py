@@ -1,5 +1,4 @@
 # COMPANIES WITH TOP 100 MARKET CAP IN THE NASDAQ STOCK MARKET SCRAPER
-
 from webdriver_manager.chrome import ChromeDriverManager as cdm
 from selenium import webdriver as wd
 from selenium.webdriver.chrome.options import Options
