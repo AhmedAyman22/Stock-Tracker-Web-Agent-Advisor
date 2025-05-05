@@ -2,6 +2,13 @@ from flask import Flask, render_template, jsonify, url_for ,request
 import subprocess
 import json
 import os
+import sys
+api_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'api'))
+sys.path.append(api_dir)
+from stock_performance_fetcher import performanceFetcher
+
+#print(performanceFetcher(['TSLA']))
+
 
 app = Flask('Stock Advisor')
 
@@ -38,9 +45,11 @@ def refresh_data():
         return jsonify({})
   
   
-@app.route("/submit", methods=['POST'])
+@app.route("/submit", methods=['GET'])
 def submit_tickers():
-    return
+    print('\n\n\nsubmit_tickers\n\n\n')
+    tickers = request.args['selectedCompaniesList']
+    print(tickers)
 
 if __name__ == '__main__':
     app.run(debug=True)

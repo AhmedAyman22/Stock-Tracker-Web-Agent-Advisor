@@ -228,6 +228,20 @@
                 reportText.textContent = "Error refreshing data.";
             }
         });
+        submitButton.addEventListener('click', async () => {
+            reportText.textContent = "Submitting data to your AI Advisor...";
+            try {
+                const response = await fetch('/submit', { method: 'GET' });
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                selectedCompaniesList = 
+                reportText.textContent = "Data submitted successfully.";
+            } catch (error) {
+                console.error("Error submitting data:", error);
+                reportText.textContent = "Error submitting data.";
+            }
+        });
 
         // Initial data load
         fetchData();
