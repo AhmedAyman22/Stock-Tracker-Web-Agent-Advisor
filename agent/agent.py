@@ -46,14 +46,12 @@ def generateReport(data):
         )
         agent = {}
         agent['report'] = response.text
-        cur_path = os.path.dirname(__file__)
-        new_path = os.path.relpath('..\\data\\agent_report.json', cur_path)
-        try:
-            os.remove(new_path)
-        finally:
-            with open(new_path, 'w') as json_file:
-                json.dump(agent, json_file, indent=4)
-        print("Data saved to '\\Stock-Tracker-Web-Agent-Advisor\\data\\agent_report.json'")
+        data_dir = os.path.join(os.path.dirname(__file__), '..', 'data')
+        os.makedirs(data_dir, exist_ok=True)
+        report_path = os.path.join(data_dir, 'agent_report.json')
+        with open(report_path, 'w') as json_file:
+            json.dump(agent, json_file, indent=4)
+        print(f"Data saved to '{report_path}'")
     except ValueError:
         print('ValueError')
     except IndexError:

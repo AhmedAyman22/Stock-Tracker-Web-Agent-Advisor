@@ -31,12 +31,14 @@ def scraper():
         print('data fetched')
 
         cur_path = os.path.dirname(__file__)
-        new_path = os.path.relpath('..\\data\\data.json', cur_path)
-        
+        data_dir = os.path.join(cur_path, '..', 'data')
+        os.makedirs(data_dir, exist_ok=True)
+        new_path = os.path.join(data_dir, 'data.json')
+
         with open(new_path, 'w') as json_file:
             json.dump(topCompanies, json_file, indent=4)        
     
-        print("Data saved to '\\Stock-Tracker-Web-Agent-Advisor\\data\\data.json'")  
+        print(f"Data saved to '{new_path}'")  
     
     except ValueError:
         print('ValueError')
@@ -45,4 +47,5 @@ def scraper():
     finally:
         driver.quit()  
 
-scraper()
+if __name__ == '__main__':
+    scraper()
